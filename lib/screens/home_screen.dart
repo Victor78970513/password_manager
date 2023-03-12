@@ -94,10 +94,9 @@ class AddPassword extends StatelessWidget {
             const Text(
               "create",
               style: TextStyle(
-                color: Color(0xff007AFF),
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+                  color: Color(0xff007AFF),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
             ),
           ],
         ),
