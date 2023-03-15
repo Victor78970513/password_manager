@@ -20,10 +20,13 @@ class CardPassword extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              children: const [
-                Icon(Icons.facebook),
-                Spacer(),
-                Icon(Icons.delete)
+              children: [
+                const Icon(Icons.facebook),
+                const Spacer(),
+                IconButton(
+                  icon: const Icon(Icons.delete),
+                  onPressed: () {},
+                )
               ],
             ),
             const Spacer(),
