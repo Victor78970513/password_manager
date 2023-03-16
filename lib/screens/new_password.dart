@@ -22,17 +22,66 @@ class NewPassword extends StatelessWidget {
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(20)),
                 ),
-                CustomInput(),
-                CustomInput(),
-                CustomInput(),
-                CustomInput(),
-                CustomInput(),
-                CustomInput(),
+                _PasswordInputs(),
+                _PasswordColor()
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class _PasswordColor extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: List.generate(
+            Colors.primaries.length,
+            (index) => Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              height: 20,
+              width: 20,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: Colors.primaries[index]),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _PasswordInputs extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: const [
+        CustomInput(
+          labelText: 'Title Password',
+          hintText: 'Title',
+        ),
+        SizedBox(height: 10),
+        CustomInput(
+          labelText: 'Email Adress',
+          hintText: 'Email',
+        ),
+        SizedBox(height: 10),
+        CustomInput(
+          labelText: 'Password',
+          hintText: 'password',
+        ),
+        SizedBox(height: 10),
+        CustomInput(
+          labelText: 'Name',
+          hintText: 'User name',
+        ),
+        SizedBox(height: 30),
+      ],
     );
   }
 }
