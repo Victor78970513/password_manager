@@ -21,6 +21,23 @@ class NewPassword extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.grey[300],
                       borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: const [
+                          Icon(Icons.facebook, size: 50),
+                          Spacer(),
+                          Icon(Icons.delete, size: 50)
+                        ],
+                      ),
+                      const Spacer(),
+                      const Text('Titulo',
+                          style: TextStyle(color: Colors.red, fontSize: 30)),
+                      const Text('Correo',
+                          style: TextStyle(color: Colors.red, fontSize: 30))
+                    ],
+                  ),
                 ),
                 _PasswordInputs(),
                 _PasswordColor()

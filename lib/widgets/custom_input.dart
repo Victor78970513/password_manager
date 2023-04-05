@@ -16,6 +16,7 @@ class CustomInput extends StatelessWidget {
       this.suffixIcon});
   @override
   Widget build(BuildContext context) {
+    // final inputProvider =
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
