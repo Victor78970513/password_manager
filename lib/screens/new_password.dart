@@ -64,11 +64,11 @@ class NewPassword extends StatelessWidget {
                       ),
                       const Spacer(),
                       Text(inputProvider.titleController.text,
-                          style:
-                              const TextStyle(color: Colors.red, fontSize: 30)),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 30)),
                       Text(inputProvider.emailController.text,
-                          style:
-                              const TextStyle(color: Colors.red, fontSize: 30))
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 30))
                     ],
                   ),
                 ),

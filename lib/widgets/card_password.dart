@@ -43,7 +43,7 @@ class CardPassword extends StatelessWidget {
             ),
             Text(
               password.correo,
-              style: TextStyle(color: Colors.grey[400], fontSize: 15),
+              style: TextStyle(color: Colors.grey[700], fontSize: 15),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             )
