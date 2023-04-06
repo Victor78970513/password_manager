@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:securepassword/model/password.dart';
+import 'package:securepassword/providers/input_provider.dart';
 
 class CardPassword extends StatelessWidget {
   final Password password;
@@ -8,10 +10,12 @@ class CardPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final inputProvider = Provider.of<InputProvider>(context);
     return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: const Color(0xff516BBF),
+          color: Color.fromARGB(password.colorAlpha, password.colorRed,
+              password.colorGreen, password.colorBlue),
         ),
         padding: const EdgeInsets.all(16),
         margin: const EdgeInsets.all(10),

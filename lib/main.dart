@@ -1,6 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:securepassword/providers/input_provider.dart';
 import 'package:securepassword/screens/home_screen.dart';
+import 'package:securepassword/screens/new_password.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,10 +16,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Material App',
-      home: HomeScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => InputProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Material App',
+        initialRoute: 'home',
+        routes: {
+          'home': (_) => HomeScreen(),
+          'newPassword': (_) => NewPassword()
+        },
+      ),
     );
   }
 }

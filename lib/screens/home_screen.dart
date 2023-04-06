@@ -70,7 +70,7 @@ class AddPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.push(
-          context, MaterialPageRoute(builder: (_) => NewPassword())),
+          context, MaterialPageRoute(builder: (_) => const NewPassword())),
       child: Container(
         margin: const EdgeInsets.all(10),
         padding: const EdgeInsets.all(16),

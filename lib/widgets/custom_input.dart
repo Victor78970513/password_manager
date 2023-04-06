@@ -6,6 +6,7 @@ class CustomInput extends StatelessWidget {
   final String? helperText;
   final IconData? icon;
   final IconData? suffixIcon;
+  final TextEditingController? controller;
 
   const CustomInput(
       {super.key,
@@ -13,13 +14,15 @@ class CustomInput extends StatelessWidget {
       this.labelText,
       this.helperText,
       this.icon,
-      this.suffixIcon});
+      this.suffixIcon,
+      this.controller});
   @override
   Widget build(BuildContext context) {
     // final inputProvider =
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextField(
+        controller: controller,
         decoration: InputDecoration(
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.indigo),
