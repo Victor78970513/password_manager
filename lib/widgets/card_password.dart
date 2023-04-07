@@ -5,8 +5,10 @@ import 'package:securepassword/providers/input_provider.dart';
 
 class CardPassword extends StatelessWidget {
   final Password password;
+  final Function() onPressed;
 
-  const CardPassword({super.key, required this.password});
+  const CardPassword(
+      {super.key, required this.password, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +29,7 @@ class CardPassword extends StatelessWidget {
               children: [
                 const Icon(Icons.facebook),
                 const Spacer(),
-                IconButton(
-                  icon: const Icon(Icons.delete),
-                  onPressed: () {},
-                )
+                IconButton(icon: const Icon(Icons.delete), onPressed: onPressed)
               ],
             ),
             const Spacer(),

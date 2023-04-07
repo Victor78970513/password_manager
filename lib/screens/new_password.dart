@@ -12,6 +12,7 @@ class NewPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inputProvider = Provider.of<InputProvider>(context);
+    DateTime now = DateTime.now();
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
@@ -22,14 +23,17 @@ class NewPassword extends StatelessWidget {
           final colorRed = inputProvider.color?.red ?? 0;
           final colorGreen = inputProvider.color?.green ?? 0;
           final colorBlue = inputProvider.color?.blue ?? 0;
+          final date = now.toString();
           final newPassword = Password(
-              titulo: titulo,
-              correo: correo,
-              contrasena: contrasena,
-              colorAlpha: colorAlpha,
-              colorRed: colorRed,
-              colorGreen: colorGreen,
-              colorBlue: colorBlue);
+            titulo: titulo,
+            correo: correo,
+            contrasena: contrasena,
+            colorAlpha: colorAlpha,
+            colorRed: colorRed,
+            colorGreen: colorGreen,
+            colorBlue: colorBlue,
+            date: date,
+          );
 
           await FirebaseFirestore.instance
               .collection('passwords')
@@ -57,9 +61,9 @@ class NewPassword extends StatelessWidget {
                     children: [
                       Row(
                         children: const [
-                          Icon(Icons.facebook, size: 50),
+                          Icon(Icons.question_mark_outlined, size: 50),
                           Spacer(),
-                          Icon(Icons.delete, size: 50)
+                          Icon(Icons.question_mark_outlined, size: 50)
                         ],
                       ),
                       const Spacer(),
@@ -130,17 +134,18 @@ class _PasswordInputs extends StatelessWidget {
           labelText: 'Email Adress',
           hintText: 'Email',
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         CustomInput(
+          controller: inputProvider.passwordController,
           labelText: 'Password',
           hintText: 'password',
         ),
-        SizedBox(height: 10),
-        CustomInput(
-          labelText: 'Name',
-          hintText: 'User name',
-        ),
-        SizedBox(height: 30),
+        const SizedBox(height: 10),
+        // CustomInput(
+        //   labelText: 'Name',
+        //   hintText: 'User name',
+        // ),
+        const SizedBox(height: 30),
       ],
     );
   }

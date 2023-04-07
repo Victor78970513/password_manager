@@ -8,6 +8,7 @@ class Password {
   final int colorRed;
   final int colorGreen;
   final int colorBlue;
+  final String date;
 
   Password({
     required this.titulo,
@@ -17,6 +18,7 @@ class Password {
     required this.colorRed,
     required this.colorGreen,
     required this.colorBlue,
+    required this.date,
   });
 
   factory Password.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {
@@ -29,6 +31,7 @@ class Password {
       colorRed: json['colorRed'],
       colorGreen: json['colorGreen'],
       colorBlue: json['colorBlue'],
+      date: json['fecha'],
     );
   }
 
@@ -41,6 +44,7 @@ class Password {
       'colorRed': colorRed,
       'colorGreen': colorGreen,
       'colorBlue': colorBlue,
+      'fecha': date,
     };
   }
 }

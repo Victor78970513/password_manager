@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
             child: StreamBuilder(
               stream: FirebaseFirestore.instance
                   .collection('passwords')
+                  .orderBy('fecha', descending: true)
                   .snapshots(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
@@ -39,12 +40,20 @@ class HomeScreen extends StatelessWidget {
                       child: GridView.count(
                           physics: const BouncingScrollPhysics(),
                           crossAxisCount: 2,
-                          childAspectRatio: 1.2,
+                          childAspectRatio: 1.3,
                           children:
                               List.generate(passwords.length + 1, (index) {
                             if (index < passwords.length) {
                               final password = passwords[index];
-                              return CardPassword(password: password);
+                              return CardPassword(
+                                password: password,
+                                onPressed: () async {
+                                  await FirebaseFirestore.instance
+                                      .collection('passwords')
+                                      .doc(documentSnaphots[index].id)
+                                      .delete();
+                                },
+                              );
                             } else {
                               return AddPassword();
                             }
