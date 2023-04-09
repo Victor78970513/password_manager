@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:securepassword/model/password.dart';
 import 'package:securepassword/providers/input_provider.dart';
@@ -91,27 +92,66 @@ class _PasswordColor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inputProvider = Provider.of<InputProvider>(context);
+    List<IconData> icons = [
+      FontAwesomeIcons.facebook,
+      FontAwesomeIcons.whatsapp,
+      FontAwesomeIcons.twitter,
+      FontAwesomeIcons.instagram,
+      FontAwesomeIcons.youtube,
+      FontAwesomeIcons.google,
+      FontAwesomeIcons.apple,
+      FontAwesomeIcons.github,
+      FontAwesomeIcons.linkedin,
+      FontAwesomeIcons.paypal,
+      FontAwesomeIcons.spotify,
+      FontAwesomeIcons.twitch,
+    ];
     return Container(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: List.generate(
-            Colors.primaries.length,
-            (index) => GestureDetector(
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: Colors.primaries[index]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: List.generate(
+                Colors.primaries.length,
+                (index) => GestureDetector(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 20),
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.primaries[index]),
+                  ),
+                  onTap: () {
+                    inputProvider.color =
+                        Colors.primaries[index].withOpacity(0.4);
+                  },
+                ),
               ),
-              onTap: () {
-                inputProvider.color = Colors.primaries[index].withOpacity(0.4);
-              },
             ),
           ),
-        ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: List.generate(
+                icons.length,
+                (index) => GestureDetector(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Icon(
+                      icons[index],
+                      size: 40,
+                      color: Colors.grey[400],
+                    ),
+                  ),
+                  onTap: () {},
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -141,11 +181,6 @@ class _PasswordInputs extends StatelessWidget {
           hintText: 'password',
         ),
         const SizedBox(height: 10),
-        // CustomInput(
-        //   labelText: 'Name',
-        //   hintText: 'User name',
-        // ),
-        const SizedBox(height: 30),
       ],
     );
   }
