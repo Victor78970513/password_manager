@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InputProvider extends ChangeNotifier {
   TextEditingController _titleController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   Color? _color = Colors.grey[300];
+  IconData? _icon = FontAwesomeIcons.peopleGroup;
   String _password = '';
+
+  IconData? get icon => _icon;
+  set icon(IconData? newIcon) {
+    _icon = newIcon;
+    notifyListeners();
+  }
 
   TextEditingController get titleController => _titleController;
   set titleController(TextEditingController text) {

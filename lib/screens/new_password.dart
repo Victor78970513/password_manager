@@ -25,16 +25,17 @@ class NewPassword extends StatelessWidget {
           final colorGreen = inputProvider.color?.green ?? 0;
           final colorBlue = inputProvider.color?.blue ?? 0;
           final date = now.toString();
+          final icon = inputProvider.icon.toString().substring(12, 16);
           final newPassword = Password(
-            titulo: titulo,
-            correo: correo,
-            contrasena: contrasena,
-            colorAlpha: colorAlpha,
-            colorRed: colorRed,
-            colorGreen: colorGreen,
-            colorBlue: colorBlue,
-            date: date,
-          );
+              titulo: titulo,
+              correo: correo,
+              contrasena: contrasena,
+              colorAlpha: colorAlpha,
+              colorRed: colorRed,
+              colorGreen: colorGreen,
+              colorBlue: colorBlue,
+              date: date,
+              icon: icon);
 
           await FirebaseFirestore.instance
               .collection('passwords')
@@ -61,10 +62,14 @@ class NewPassword extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        children: const [
-                          Icon(Icons.question_mark_outlined, size: 50),
-                          Spacer(),
-                          Icon(Icons.question_mark_outlined, size: 50)
+                        children: [
+                          Icon(
+                            // Icons.question_mark_outlined,
+                            inputProvider.icon,
+                            size: 50,
+                          ),
+                          const Spacer(),
+                          const Icon(Icons.delete, size: 50)
                         ],
                       ),
                       const Spacer(),
@@ -92,7 +97,7 @@ class _PasswordColor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inputProvider = Provider.of<InputProvider>(context);
-    List<IconData> icons = [
+    List<IconData> fontawesomeIcons = [
       FontAwesomeIcons.facebook,
       FontAwesomeIcons.whatsapp,
       FontAwesomeIcons.twitter,
@@ -107,6 +112,7 @@ class _PasswordColor extends StatelessWidget {
       FontAwesomeIcons.twitch,
     ];
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -136,17 +142,22 @@ class _PasswordColor extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: List.generate(
-                icons.length,
+                fontawesomeIcons.length,
                 (index) => GestureDetector(
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: Icon(
-                      icons[index],
+                      fontawesomeIcons[index],
                       size: 40,
                       color: Colors.grey[400],
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    inputProvider.icon = fontawesomeIcons[index];
+                    final long = inputProvider.icon.toString().length;
+                    print(
+                        inputProvider.icon.toString().substring(12, long - 1));
+                  },
                 ),
               ),
             ),

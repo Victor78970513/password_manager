@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:securepassword/model/password.dart';
 import 'package:securepassword/providers/input_provider.dart';
@@ -13,6 +14,7 @@ class CardPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inputProvider = Provider.of<InputProvider>(context);
+    String unicode = '0x${password.icon}';
     return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -27,7 +29,9 @@ class CardPassword extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Icon(Icons.facebook),
+                Icon(IconData(int.parse(unicode),
+                    fontFamily: 'FontAwesomeBrands',
+                    fontPackage: 'font_awesome_flutter')),
                 const Spacer(),
                 IconButton(icon: const Icon(Icons.delete), onPressed: onPressed)
               ],
