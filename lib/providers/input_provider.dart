@@ -7,7 +7,6 @@ class InputProvider extends ChangeNotifier {
   TextEditingController _passwordController = TextEditingController();
   Color? _color = Colors.grey[300];
   IconData? _icon = FontAwesomeIcons.peopleGroup;
-  String _password = '';
 
   IconData? get icon => _icon;
   set icon(IconData? newIcon) {
@@ -37,10 +36,5 @@ class InputProvider extends ChangeNotifier {
   set color(Color? newColor) {
     _color = newColor;
     notifyListeners();
-  }
-
-  String get password => _password;
-  set password(String text) {
-    _password = text;
   }
 }

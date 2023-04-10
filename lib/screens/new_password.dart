@@ -19,7 +19,7 @@ class NewPassword extends StatelessWidget {
         onPressed: () async {
           final titulo = inputProvider.titleController.text;
           final correo = inputProvider.emailController.text;
-          final contrasena = inputProvider.password;
+          final contrasena = inputProvider.passwordController.text;
           final colorAlpha = inputProvider.color?.alpha ?? 0;
           final colorRed = inputProvider.color?.red ?? 0;
           final colorGreen = inputProvider.color?.green ?? 0;
