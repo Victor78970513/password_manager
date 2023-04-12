@@ -20,8 +20,8 @@ class CardPassword extends StatelessWidget {
           color: Color.fromARGB(password.colorAlpha, password.colorRed,
               password.colorGreen, password.colorBlue),
         ),
-        padding: const EdgeInsets.all(16),
-        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+        margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

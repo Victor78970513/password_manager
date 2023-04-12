@@ -81,8 +81,8 @@ class AddPassword extends StatelessWidget {
       onTap: () => Navigator.push(
           context, MaterialPageRoute(builder: (_) => const NewPassword())),
       child: Container(
-        margin: const EdgeInsets.all(10),
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+        margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: const Color(0xFFD9D9E3),
