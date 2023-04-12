@@ -26,15 +26,16 @@ class Password {
   factory Password.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {
     final json = documentSnapshot.data() as Map<String, dynamic>;
     return Password(
-        titulo: json['titulo'],
-        correo: json['correo'],
-        contrasena: json['contrasena'],
-        colorAlpha: json['colorAlpha'],
-        colorRed: json['colorRed'],
-        colorGreen: json['colorGreen'],
-        colorBlue: json['colorBlue'],
-        date: json['fecha'],
-        icon: json['icon']);
+      titulo: json['titulo'],
+      correo: json['correo'],
+      contrasena: json['contrasena'],
+      colorAlpha: json['colorAlpha'],
+      colorRed: json['colorRed'],
+      colorGreen: json['colorGreen'],
+      colorBlue: json['colorBlue'],
+      date: json['fecha'],
+      icon: json['icon'],
+    );
   }
 
   Map<String, dynamic> aJson() {
