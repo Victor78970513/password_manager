@@ -13,7 +13,6 @@ class CardPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final inputProvider = Provider.of<InputProvider>(context);
     String unicode = '0x${password.icon}';
     return Container(
         decoration: BoxDecoration(
