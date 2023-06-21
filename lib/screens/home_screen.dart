@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                       child: GridView.count(
                           physics: const BouncingScrollPhysics(),
                           crossAxisCount: 2,
-                          childAspectRatio: 1.3,
+                          childAspectRatio: 1.2,
                           children:
                               List.generate(passwords.length + 1, (index) {
                             if (index < passwords.length) {
